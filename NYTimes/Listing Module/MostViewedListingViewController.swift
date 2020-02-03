@@ -9,7 +9,10 @@
 import UIKit
 
 class MostViewedListingViewController: NYBaseViewController {
+    
     @IBOutlet weak var tableViewForMostViewListing: UITableView!
+    
+    //ViewModel
     var dataCtlr : MostViewedListingDataController?
     
     override func viewDidLoad() {
@@ -32,7 +35,7 @@ class MostViewedListingViewController: NYBaseViewController {
                 self.tableViewForMostViewListing.reloadData();
             }
         }, onFailure: { (message) in
-            
+            //Failure of API with proper message
         })
     }
     
@@ -57,5 +60,9 @@ extension MostViewedListingViewController : UITableViewDataSource,UITableViewDel
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //handling of Navigation to details page
     }
 }
